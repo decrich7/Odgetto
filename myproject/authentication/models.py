@@ -97,3 +97,24 @@ class Participant(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.challenge}"
+
+
+class Comment(models.Model):
+    challenge = models.ForeignKey(Challenge, on_delete=models.CASCADE, related_name="challenge_comments",
+                                  verbose_name='Челлендж')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_users", verbose_name='Пользователь')
+    is_answer = models.BooleanField(default=False)
+    is_winner = models.BooleanField(default=False)
+    content = models.TextField()
+
+
+class PhotoComment(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='photo_comments', verbose_name='Комментарий')
+    photo = models.ImageField(upload_to='photo_comment/', blank=True, verbose_name='Фото')
+
+
+class CommentReaction(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='comments_reactions', verbose_name='Комментарий')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments_reactions_user", verbose_name='Пользователь')
+    reaction = models.CharField()
+

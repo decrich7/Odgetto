@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'authentication',
-    'admin_panel'
+    'admin_panel',
+    'messaging'
 ]
 
 
