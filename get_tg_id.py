@@ -9,9 +9,10 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.filters import CommandStart
 import asyncio
+from decouple import config
 
 
-BOT_TOKEN = '7564082109:AAFrn4G_3h0rHqjogJo4UyXuXJB6Gda-zDU'
+BOT_TOKEN = config('TOKEN')
 DATABASE_CONFIG = {
     'user': 'postgres',
     'password': '24651asd',
