@@ -31,6 +31,7 @@ class User(AbstractUser):
     bio = models.TextField(verbose_name='О себе')
     registration_date = models.DateTimeField(auto_now_add=True, verbose_name='Дата регистрации')
     email = models.EmailField(unique=True, verbose_name='Почта')
+    tg_id = models.BigIntegerField(blank=True, null=True)
 
     # role = models.CharField(max_length=5, choices=[('user', 'User'), ('admin', 'Admin')])
     class Meta:
