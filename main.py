@@ -15,16 +15,15 @@ headers = {
 # print(a.json())
 # print(a.content)
 
-url = 'http://127.0.0.1:8000/messaging/send_message/'
+url = 'http://127.0.0.1:8000/assistent/get_answer/'
 data = {
-    'message': 'пися попа)))))))',
-    'user_id': 4
+    'messages': [{'role': 'user', 'content': 'предложи идею для челленджа'}]
 }
 headers = {
     'Content-Type': 'application/json'
 }
 
 response = requests.get(url, json=data, headers=headers)
-print(response)
+print(response.json())
 
 # {'refresh': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMDAyNDEzMiwiaWF0IjoxNzI5OTM3NzMyLCJqdGkiOiJlYTZhYjQ0YjZmYmY0NWRjYjhkZGQ2OGVmOGM1NzhmNyIsInVzZXJfaWQiOjN9.bMqIhazi536qFcN5bw87YxpAz5n-7UkeZQxinjQvq9Y', 'access': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI5OTM4MDMyLCJpYXQiOjE3Mjk5Mzc3MzIsImp0aSI6IjgxOGI1OTlhOGMwYzQxNTNiMGQ3MDNhN2NjZDZhY2E2IiwidXNlcl9pZCI6M30.A-4I-AR5ipLTuZmj1je6T0iQVO4mgAKqwWTxkrg6Um4'}
